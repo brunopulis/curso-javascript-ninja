@@ -115,8 +115,18 @@ citado acima, no lugar de "pessoas".
 carro.adicionaPessoa = function(numPessoas) {
   var totalPessoas = carro.quantidadePessoas + numPessoas;
   
-  if( carro.quantidadePessoas === carro.assentos 
-}
+  if( carro.quantidadePessoas === carro.assentos ) {
+    return 'O carro já está lotado!'; 
+  }
+  
+  if( totalPessoas > carro.assentos ) {
+    var vagasCarro = carro.assentos - carro.quantidadePessoas;
+    return 'Só cabem mais' + vagasCarro + ' pessoas!';
+  }
+  
+  carro.quantidadePessoas += numPessoas;
+  return 'Já temos ' + totalPessoas + ' pessoas no carro';
+};
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
